@@ -20,8 +20,8 @@ done
 
 if [ $unreachable -gt 0 ]; then
         d=$(date)
-        echo "To:me@jesussaavedra.com" > /etc/devicemonitor/smtpmsg.txt
-        echo "From:alert@jesussaavedra.com" >> /etc/devicemonitor/smtpmsg.txt
+        echo "To:email@email.com" > /etc/devicemonitor/smtpmsg.txt
+        echo "From:email@email.com" >> /etc/devicemonitor/smtpmsg.txt
         echo "Subject:Cron Alert (conan notification: Devices Unreachable) $d" >> /etc/devicemonitor/smtpmsg.txt
         echo "" >> /etc/devicemonitor/smtpmsg.txt
         uptime >> /etc/devicemonitor/smtpmsg.txt
@@ -29,5 +29,5 @@ if [ $unreachable -gt 0 ]; then
 
         cat /etc/devicemonitor/smtpmsg.txt /etc/devicemonitor/results.txt > /etc/devicemonitor/msgfinal.txt
 
-        ssmtp me@jesussaavedra.com < /etc/devicemonitor/msgfinal.txt
+        ssmtp email@email.com < /etc/devicemonitor/msgfinal.txt
 fi
